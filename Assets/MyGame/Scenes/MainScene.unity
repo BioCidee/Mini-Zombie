@@ -237,6 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 912261186}
+  - component: {fileID: 912261187}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -259,6 +260,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &912261187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912261185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a162b871b52787144b330a3234776b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1 &1090021098
 GameObject:
   m_ObjectHideFlags: 0
@@ -3715,7 +3728,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2026392255}
-  - component: {fileID: 2026392257}
   - component: {fileID: 2026392256}
   - component: {fileID: 2026392260}
   - component: {fileID: 2026392259}
@@ -3755,52 +3767,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23678999d3ce99a449a78f623731d363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Movement
---- !u!114 &2026392257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026392254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 70d1eea0f67d2e54997df6befed6f733, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e5aa9762-3af4-48cd-9cb8-a7be6cf17eff
-    m_ActionName: 'Movement/ZQSD[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4986f583-4354-420e-8f70-9e3df3ae2568
-    m_ActionName: 'Mouse/Fire[/Mouse/leftButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1d9c6a67-89ec-45d1-81b5-5e10915a4f02
-    m_ActionName: 'Mouse/MouseMovement[/Mouse/position]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 37445ec6-2b56-4f5a-8855-186231a1a5ec
-    m_ActionName: 'Interact/Interact[/Keyboard/f]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: Movement
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  movementSpeed: 2
+  rb: {fileID: 0}
+  cam: {fileID: 1206076065}
+  inputMousePosition: {fileID: 0}
 --- !u!50 &2026392258
 Rigidbody2D:
   serializedVersion: 5
@@ -3878,7 +3848,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Interaction
   interactDistance: 0.5
-  interactAction: {fileID: 2097959786198619037, guid: 70d1eea0f67d2e54997df6befed6f733, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

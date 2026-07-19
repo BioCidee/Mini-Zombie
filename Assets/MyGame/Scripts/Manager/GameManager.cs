@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
+    private PlayerInput playerInput;
 
     #region SINGLETON
     private static GameManager instance;
@@ -26,5 +26,11 @@ public class GameManager : MonoBehaviour
 
     private void Awake() {
         InitializeSingleton();
+
+        playerInput = new PlayerInput();
+    }
+
+    public PlayerInput GetPlayerInput() {
+        return playerInput;
     }
 }

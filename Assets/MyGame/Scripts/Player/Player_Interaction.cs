@@ -5,6 +5,12 @@ public class Player_Interaction : MonoBehaviour
 {
     [Header("---- Interact Parameters ----")]
     [SerializeField] float interactDistance;
+    private PlayerInput input;
+
+    private void Start() {
+        input = GameManager.Instance.GetPlayerInput();
+        EnableInteraction();
+    }
 
     private void OnInteract(InputAction.CallbackContext context) {
         Debug.Log("Try Interaction");
@@ -20,5 +26,10 @@ public class Player_Interaction : MonoBehaviour
     private void OnDrawGizmos() {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, interactDistance);
+    }
+
+    private void EnableInteraction() {
+        input.Interaction.Enable();
+        input.Interaction.Interact.performed += OnInteract;
     }
 }
