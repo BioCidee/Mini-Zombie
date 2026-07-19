@@ -1643,6 +1643,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1554484612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1554484613}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1554484613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554484612}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.321, y: -0.098, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2026392255}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1721593674
 GameObject:
   m_ObjectHideFlags: 0
@@ -3869,7 +3900,7 @@ Transform:
   m_GameObject: {fileID: 1896551088}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.064, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3947,6 +3978,7 @@ GameObject:
   - component: {fileID: 2026392256}
   - component: {fileID: 2026392261}
   - component: {fileID: 2026392260}
+  - component: {fileID: 2026392262}
   - component: {fileID: 2026392259}
   - component: {fileID: 2026392258}
   m_Layer: 0
@@ -3965,11 +3997,12 @@ Transform:
   m_GameObject: {fileID: 2026392254}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.54, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1896551089}
+  - {fileID: 1554484613}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2026392256
@@ -4077,7 +4110,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Weapons
   isPlayerHaveWeapons: 0
+  fireDistance: 4
   player_Movement: {fileID: 2026392256}
+  firePointTransform: {fileID: 1554484613}
+  player_Ambiant: {fileID: 2026392262}
+--- !u!114 &2026392262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026392254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4186bf6c04adb0e43b3276d7550bb1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_Ambiant
+  playerSprite: {fileID: 1896551090}
+  pistolSprite: {fileID: 5908627030027194432, guid: a8cf91b1e3cc937438283e3c50a8a23a, type: 3}
+  weaponsSprite: {fileID: -9022231301107038317, guid: c6ced8084f39ad844a73ae8ffa32673f, type: 3}
+  reloadWeaponsSprite: {fileID: 0}
+  silencerWeaponslSprite: {fileID: -7599553732540998545, guid: 855a520f6dbcf5747b089e9e7d6d9b89, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -38,6 +38,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void PlayerGetWeapons() {
-
+        player_Weapons.PlayerGetWeapons();
     }
 }

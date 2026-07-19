@@ -43,6 +43,8 @@ public class Player_Movement : MonoBehaviour
       rb.linearVelocity = new Vector2(movementDirection.x * movementSpeed, movementDirection.y * movementSpeed);  
     }
 
+
+    // Public
     public void SetPlayerSpeed(float _speed) {
         movementSpeed = _speed;
     }
