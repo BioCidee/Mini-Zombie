@@ -4,6 +4,9 @@ public class GameManager : MonoBehaviour
 {
     private PlayerInput playerInput;
 
+    [Header("---- Player Script ----")]
+    [SerializeField] private Player_Weapons player_Weapons;
+ 
     #region SINGLETON
     private static GameManager instance;
     public static GameManager Instance {
@@ -32,5 +35,9 @@ public class GameManager : MonoBehaviour
 
     public PlayerInput GetPlayerInput() {
         return playerInput;
+    }
+
+    public void PlayerGetWeapons() {
+
     }
 }
