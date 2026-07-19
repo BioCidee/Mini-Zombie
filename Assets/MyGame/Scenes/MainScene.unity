@@ -538,7 +538,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player_Movement
   movementSpeed: 2
   rb: {fileID: 2026392258}
-  move: {fileID: -1575465741878179555, guid: 70d1eea0f67d2e54997df6befed6f733, type: 3}
+  cam: {fileID: 0}
+  inputMove: {fileID: -1575465741878179555, guid: 70d1eea0f67d2e54997df6befed6f733, type: 3}
+  inputMousePosition: {fileID: -6831627168255740670, guid: 70d1eea0f67d2e54997df6befed6f733, type: 3}
 --- !u!114 &2026392257
 MonoBehaviour:
   m_ObjectHideFlags: 0

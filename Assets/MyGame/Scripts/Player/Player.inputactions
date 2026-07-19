@@ -112,7 +112,7 @@
                 {
                     "name": "",
                     "id": "c1883c58-e445-4e09-9bec-9bbfb6aa6ad2",
-                    "path": "<VirtualMouse>/position",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
