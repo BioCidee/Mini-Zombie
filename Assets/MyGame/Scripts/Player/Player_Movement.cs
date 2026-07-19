@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -25,7 +24,6 @@ public class Player_Movement : MonoBehaviour
     private void Update() {
         movementDirection = inputMove.action.ReadValue<Vector2>();
         mousePosition = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
     }
 
     private void FixedUpdate() {
