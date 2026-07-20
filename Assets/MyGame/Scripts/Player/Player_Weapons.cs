@@ -27,14 +27,35 @@ public class Player_Weapons : MonoBehaviour
 
         playerInput.Weapons.Enable();
         playerInput.Weapons.Fire.performed += OnFire;
+        playerInput.Weapons.Reload.performed += OnReload;
+    }
+
+    private void OnDisable() {
+        playerInput.Weapons.Fire.performed -= OnFire;
+        playerInput.Weapons.Reload.performed -= OnReload;
+    }
+
+    private void OnReload(InputAction.CallbackContext obj) {
+       
     }
 
     private void OnFire(InputAction.CallbackContext context) {
-        
+        Debug.Log("Fire !");
+        RaycastHit2D hit = Physics2D.Raycast(firePointTransform.position, firePointTransform.right, fireDistance);
+        I_TakeDamage objectDamage;
+
+        if(hit.collider == null) {
+            return;
+        }
+
+        if (hit.transform.gameObject.TryGetComponent(out objectDamage)) {
+            objectDamage.TakeDamage();
+            Debug.Log($"{hit.transform.gameObject.name} have Take Damage !");
+        }
     }
 
     private void OnDrawGizmos() {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.red;
         Vector3 targetpositon = firePointTransform.position + firePointTransform.right * fireDistance;
         Gizmos.DrawLine(firePointTransform.position, targetpositon);
     }

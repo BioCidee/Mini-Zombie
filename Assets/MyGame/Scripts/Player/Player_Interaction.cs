@@ -17,6 +17,8 @@ public class Player_Interaction : MonoBehaviour
         Debug.Log("Try Interaction");
         RaycastHit2D hit = Physics2D.CircleCast(transformInteractionPoint.position, interactDistance, transform.right);
 
+        if (hit.collider == null) return;
+
         Debug.Log(hit.transform.gameObject.name);
 
         I_Interactable objectInteract = hit.transform.gameObject.GetComponent<I_Interactable>();
