@@ -5,6 +5,7 @@ public class Player_Interaction : MonoBehaviour
 {
     [Header("---- Interact Parameters ----")]
     [SerializeField] float interactDistance;
+    [SerializeField] private Transform transformInteractionPoint;
     private PlayerInput input;
 
     private void Start() {
@@ -14,18 +15,24 @@ public class Player_Interaction : MonoBehaviour
 
     private void OnInteract(InputAction.CallbackContext context) {
         Debug.Log("Try Interaction");
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, interactDistance, transform.right);
+        RaycastHit2D hit = Physics2D.CircleCast(transformInteractionPoint.position, interactDistance, transform.right);
+
+        Debug.Log(hit.transform.gameObject.name);
 
         I_Interactable objectInteract = hit.transform.gameObject.GetComponent<I_Interactable>();
 
-        if (objectInteract == null) return;
+        if (objectInteract == null) {
+            Debug.Log("No interaction");
+            return;
+        }
+        
 
         objectInteract.OnInteract();
     }
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, interactDistance);
+        Gizmos.DrawWireSphere(transformInteractionPoint.position, interactDistance);
     }
 
     private void EnableInteraction() {
