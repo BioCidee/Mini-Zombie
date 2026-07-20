@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class Player_Weapons : MonoBehaviour
 {
     [Header("---- Weapons Parameters ----")]
-    [SerializeField] private bool isPlayerHaveWeapons = false;
     [SerializeField] private float fireDistance;
 
     [Header("---- Player Movement ----")]
@@ -14,6 +13,11 @@ public class Player_Weapons : MonoBehaviour
     [Header("---- Player Sprite ----")]
     [SerializeField] private Player_Ambiant player_Ambiant;
 
+    [Header("---- Player Current Weapons ----")]
+    [SerializeField] private SO_Weapons mainWeapons = null;
+    [SerializeField] private SO_Weapons secondaryWeapons = null;
+    [SerializeField] private SO_Weapons currentWeapons = null;
+
     // Player Parameters
     private PlayerInput playerInput;
 
@@ -21,18 +25,35 @@ public class Player_Weapons : MonoBehaviour
         playerInput = GameManager.Instance.GetPlayerInput();
     }
 
-    public void PlayerGetWeapons() {
-        isPlayerHaveWeapons = true;
-        player_Ambiant.SetSprite(player_Ambiant.pistolSprite);
+    public void PlayerGetWeapons(SO_Weapons _newWeapons) {
+        if (mainWeapons == null) {
+            mainWeapons = _newWeapons;
+            currentWeapons = mainWeapons;
+            SetPlayerSprite(_newWeapons);
+        } else if(secondaryWeapons == null) {
+            secondaryWeapons = _newWeapons;
+            currentWeapons = secondaryWeapons;
+            SetPlayerSprite(_newWeapons);
+        } else {
+            return;
+        }
 
-        playerInput.Weapons.Enable();
-        playerInput.Weapons.Fire.performed += OnFire;
-        playerInput.Weapons.Reload.performed += OnReload;
+        if (playerInput.Weapons.enabled == false) EnableWeaponsInput();
     }
 
     private void OnDisable() {
         playerInput.Weapons.Fire.performed -= OnFire;
         playerInput.Weapons.Reload.performed -= OnReload;
+    }
+
+    private void EnableWeaponsInput() {
+        playerInput.Weapons.Enable();
+        playerInput.Weapons.Fire.performed += OnFire;
+        playerInput.Weapons.Reload.performed += OnReload;
+    }
+
+    private void SetPlayerSprite(SO_Weapons _newWeapons) {
+        player_Ambiant.SetSprite(_newWeapons.weaponsSprite);
     }
 
     private void OnReload(InputAction.CallbackContext obj) {
@@ -49,7 +70,7 @@ public class Player_Weapons : MonoBehaviour
         }
 
         if (hit.transform.gameObject.TryGetComponent(out objectDamage)) {
-            objectDamage.TakeDamage();
+            objectDamage.TakeDamage(currentWeapons.weaponsDamage);
             Debug.Log($"{hit.transform.gameObject.name} have Take Damage !");
         }
     }

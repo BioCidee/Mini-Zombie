@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         return playerInput;
     }
 
-    public void PlayerGetWeapons() {
-        player_Weapons.PlayerGetWeapons();
+    public void PlayerGetWeapons(SO_Weapons _newWeapons) {
+        player_Weapons.PlayerGetWeapons(_newWeapons);
     }
 }

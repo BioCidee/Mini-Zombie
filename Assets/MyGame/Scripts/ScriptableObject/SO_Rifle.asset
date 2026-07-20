@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138eadd235078784f8caa58c41297d1b, type: 3}
+  m_Name: SO_Rifle
+  m_EditorClassIdentifier: Assembly-CSharp::SO_Weapons
+  weaponName: Rifle
+  weaponType: Medium
+  weaponId: 2
+  weaponsDamage: 50
+  timeToReaload: 2
+  fireDistance: 8
+  weaponsSprite: {fileID: -9022231301107038317, guid: c6ced8084f39ad844a73ae8ffa32673f, type: 3}
