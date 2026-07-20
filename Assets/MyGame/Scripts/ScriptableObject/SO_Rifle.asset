@@ -18,4 +18,5 @@ MonoBehaviour:
   weaponsDamage: 50
   timeToReaload: 2
   fireDistance: 8
-  weaponsSprite: {fileID: -9022231301107038317, guid: c6ced8084f39ad844a73ae8ffa32673f, type: 3}
+  weaponsSprite: {fileID: -778044537197861050, guid: 3b5a66d6001a8174a8b56223a49ae535, type: 3}
+  playerSprite: {fileID: -9022231301107038317, guid: c6ced8084f39ad844a73ae8ffa32673f, type: 3}

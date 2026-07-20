@@ -10,4 +10,5 @@ public class SO_Weapons : ScriptableObject
     public float timeToReaload;
     public float fireDistance;
     public Sprite weaponsSprite;
+    public Sprite playerSprite;
 }

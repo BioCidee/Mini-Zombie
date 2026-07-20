@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class Weapons : MonoBehaviour
+public class Weapons : MonoBehaviour, I_Interactable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+    [SerializeField] private SO_Weapons weapon;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    private void Start() {
+        spriteRenderer.sprite = weapon.weaponsSprite;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void OnInteract() {
+        GameManager.Instance.PlayerGetWeapons(weapon);
+        Destroy(this.gameObject);
     }
 }

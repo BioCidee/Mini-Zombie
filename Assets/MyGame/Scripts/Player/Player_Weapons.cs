@@ -26,6 +26,7 @@ public class Player_Weapons : MonoBehaviour
     }
 
     public void PlayerGetWeapons(SO_Weapons _newWeapons) {
+        Debug.Log($"New Weapons {_newWeapons.name}");
         if (mainWeapons == null) {
             mainWeapons = _newWeapons;
             currentWeapons = mainWeapons;
@@ -50,14 +51,30 @@ public class Player_Weapons : MonoBehaviour
         playerInput.Weapons.Enable();
         playerInput.Weapons.Fire.performed += OnFire;
         playerInput.Weapons.Reload.performed += OnReload;
+        playerInput.Weapons.Switch.performed += OnSwitchWeapons;
     }
 
     private void SetPlayerSprite(SO_Weapons _newWeapons) {
-        player_Ambiant.SetSprite(_newWeapons.weaponsSprite);
+        player_Ambiant.SetSprite(_newWeapons.playerSprite);
     }
 
     private void OnReload(InputAction.CallbackContext obj) {
        
+    }
+
+    private void OnSwitchWeapons(InputAction.CallbackContext context) {
+        Debug.Log("Switch Weapons !");
+        if (currentWeapons.name == mainWeapons.name) {
+            if (secondaryWeapons != null) {
+                currentWeapons = secondaryWeapons;
+                SetPlayerSprite(currentWeapons);
+            }
+
+            Debug.Log("No secondary");
+        } else {
+            currentWeapons = mainWeapons;
+            SetPlayerSprite(currentWeapons);
+        }
     }
 
     private void OnFire(InputAction.CallbackContext context) {
