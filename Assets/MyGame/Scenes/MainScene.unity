@@ -1215,7 +1215,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4966949556300173680, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2052906544}
   m_SourcePrefab: {fileID: 100100000, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
 --- !u!1 &885659960
 GameObject:
@@ -1376,6 +1379,50 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.046309, y: -5.20282, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1093196655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093196657}
+  - component: {fileID: 1093196656}
+  m_Layer: 0
+  m_Name: AStarsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1093196656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093196655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3912972f7b2f0ab4cba6d0e60a1592a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AstarsManager
+--- !u!4 &1093196657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093196655}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.6104, y: -7.69527, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5528,6 +5575,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2052906543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4966949556300173680, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+  m_PrefabInstance: {fileID: 828728014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2052906544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052906543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6229b7b4f4a174ca8db4ff53ad98c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPC_Controller
+  currentNode: {fileID: 803845111}
+  path: []
+  speed: 0
 --- !u!1001 &4478127142200555134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5606,4 +5673,5 @@ SceneRoots:
   - {fileID: 217647489}
   - {fileID: 913512386}
   - {fileID: 2050032329}
+  - {fileID: 1093196657}
   - {fileID: 710134257}

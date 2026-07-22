@@ -10,6 +10,10 @@ public class Node : MonoBehaviour
     public float gScore;
     public float hScore;
 
+    private void Start() {
+        
+    }
+
     public float FScore() {
         return gScore + hScore;
     }

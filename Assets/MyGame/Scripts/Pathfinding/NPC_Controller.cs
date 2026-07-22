@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class NPC_Controller : MonoBehaviour
 {
+    [Header("---- Path Parameters ----")]
     public Node currentNode;
     public List<Node> path = new List<Node>();
+
+    [Header("---- NPC Parameters ----")]
+    [SerializeField] private float speed;
   
 
     private void Update() {
@@ -15,7 +19,7 @@ public class NPC_Controller : MonoBehaviour
         if (path.Count > 0) {
             int x = 0;
             transform.position = Vector3.MoveTowards(transform.position, 
-                                 new Vector3(path[x].transform.position.x, path[x].transform.position.y, -2), 3 * Time.deltaTime);
+                                 new Vector3(path[x].transform.position.x, path[x].transform.position.y, -2), speed * Time.deltaTime);
 
             if(Vector2.Distance(transform.position, path[x].transform.position) < 0.1f) {
                 currentNode = path[x];
