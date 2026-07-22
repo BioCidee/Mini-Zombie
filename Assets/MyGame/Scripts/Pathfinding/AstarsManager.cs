@@ -1,4 +1,3 @@
-using Mono.Cecil.Cil;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +9,10 @@ public class AstarsManager : MonoBehaviour
         instance = this;
     }
 
-    private List<Node> GeneratePath(Node start, Node end) {
+    public List<Node> GeneratePath(Node start, Node end) {
         List<Node> openSet = new List<Node>();
 
-        foreach(Node n in FindObjectsByType<Node>()) {
+        foreach(Node n in FindObjectsByType<Node>(FindObjectsInactive.Include)) {
             n.gScore = float.MaxValue;
         }
 
@@ -44,6 +43,20 @@ public class AstarsManager : MonoBehaviour
 
                 path.Reverse();
                 return path;
+            }
+
+            foreach (Node connectedNode in currentNode.connections) {
+                float heldGScore = currentNode.gScore + Vector2.Distance(currentNode.transform.position, connectedNode.transform.position);
+
+                if (heldGScore < connectedNode.gScore) {
+                    connectedNode.camFrom = currentNode;
+                    connectedNode.gScore = heldGScore;
+                    connectedNode.hScore = Vector2.Distance(connectedNode.transform.position, end.transform.position);
+
+                    if (!openSet.Contains(connectedNode)) {
+                        openSet.Add(connectedNode);
+                    }
+                }
             }
         }
 
