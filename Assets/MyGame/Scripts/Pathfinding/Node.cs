@@ -12,13 +12,26 @@ public class Node : MonoBehaviour
     public float hScore;
 
     private void Start() {
-        Collider2D[] hits = Physics2D.OverlapAreaAll(transform.position, transform.position * dist);
+        connections = new List<Node>();
+
+        int count = 0;
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, Vector2.one * dist, 0);
 
         foreach(Collider2D c in hits) {
-            Debug.Log($"This {this.name} have {hits.Length} in his collider ! next is : {c.name}");
-        }
+            Node nextNod = null;
 
-       
+            if(c.transform.TryGetComponent<Node>(out nextNod)) {
+
+                if (nextNod == this) continue;
+
+                Debug.Log($"This {nextNod.name} in the collider  of {this.name}! On /  {count + 1}");
+
+                connections.Add(nextNod);
+                count++;
+            }
+            
+        }
+ 
     }
 
     public float FScore() {
@@ -33,6 +46,6 @@ public class Node : MonoBehaviour
         }  
 
         Gizmos.color = Color.red;
-        // Gizmos.DrawSphere(transform.position, dist);
+        Gizmos.DrawCube(transform.position, Vector3.one * dist);
     }
 }
