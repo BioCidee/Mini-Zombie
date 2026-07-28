@@ -1394,6 +1394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1093196657}
   - component: {fileID: 1093196656}
+  - component: {fileID: 1093196658}
   m_Layer: 0
   m_Name: AStarsManager
   m_TagString: Untagged
@@ -1428,6 +1429,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1093196658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093196655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87e85d547ea9f541937cda73692ef87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NodeGenerator
+  height: 10
+  width: 18
+  gapBetweenNode: 0
+  nodeParent: {fileID: 0}
+  nodePrefab: {fileID: 8935328659148412735, guid: 24dce033eac7cb14393b4d510ce3ae34, type: 3}
 --- !u!1 &1206076063
 GameObject:
   m_ObjectHideFlags: 0

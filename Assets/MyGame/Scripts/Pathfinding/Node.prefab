@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3061717341502480748}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11394, y: 2.6195, z: 0}
+  m_LocalPosition: {x: 0.012, y: 2.997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Node
   camFrom: {fileID: 0}
   connections: []
+  dist: 1.7
   gScore: 0
   hScore: 0
