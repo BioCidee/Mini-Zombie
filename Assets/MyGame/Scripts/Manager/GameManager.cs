@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float zero;
 
     [Header("---- Point System ----")]
+    [SerializeField] private PointManager pointManager;
  
     #region SINGLETON
     private static GameManager instance;

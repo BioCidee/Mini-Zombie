@@ -7,6 +7,10 @@ public class Zombie_Life : MonoBehaviour, I_TakeDamage {
     [SerializeField] private float minLife = 0;
     [SerializeField] private float currentLife;
 
+    private enum eventList {
+        onZombieDie,
+    }
+
     private void Start() {
         currentLife = maxLife;
     }
@@ -29,6 +33,7 @@ public class Zombie_Life : MonoBehaviour, I_TakeDamage {
 
     private void Death() {
         Debug.Log("This Zombie is Dead !");
+        EventManager.Instance.TriggerEvent(eventList.onZombieDie.ToString());
         Destroy(this.gameObject);
     }
 }

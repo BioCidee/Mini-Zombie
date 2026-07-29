@@ -25,26 +25,18 @@ public class EventManager : MonoBehaviour {
     }
     #endregion
 
-    private enum eventToCreate {
-        OnPlayerDie,
-        OnEnnemyCanSpawn,
-        OnEnnemyCantSpawn,
-        OnGameStart,
-    }
-
     private void Awake() {
         InitializeSingleton();
-        CreateEventPrefab();
-    }
-
-    private void CreateEventPrefab() {
-        CreateEvent(eventToCreate.OnGameStart.ToString());
-        CreateEvent(eventToCreate.OnPlayerDie.ToString());
-        CreateEvent(eventToCreate.OnEnnemyCanSpawn.ToString());
-        CreateEvent(eventToCreate.OnEnnemyCantSpawn.ToString());
     }
 
     public void CreateEvent(string _nameEvent) {
+        if (eventDic.ContainsKey(_nameEvent))
+            Debug.LogError($"You try to create a event, he already exist. Event name : {_nameEvent}");
+
+        eventDic.Add(_nameEvent, null);
+    }
+
+    public void CreateEvent(string _nameEvent, int _number) {
         if (eventDic.ContainsKey(_nameEvent))
             Debug.LogError($"You try to create a event, he already exist. Event name : {_nameEvent}");
 
