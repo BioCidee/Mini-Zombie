@@ -6,6 +6,11 @@ public class GameManager : MonoBehaviour
 
     [Header("---- Player Script ----")]
     [SerializeField] private Player_Weapons player_Weapons;
+
+    [Header("---- Zombie Spawn ----")]
+    [SerializeField] private float zero;
+
+    [Header("---- Point System ----")]
  
     #region SINGLETON
     private static GameManager instance;
