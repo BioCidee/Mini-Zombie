@@ -46,8 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Node
   camFrom: {fileID: 0}
+  layerProps:
+    serializedVersion: 2
+    m_Bits: 384
   connections: []
-  dist: 2.5
+  setDist: 0.02
+  connectionNodeDist: 2.5
+  currentDist: 0
   gScore: 0
   hScore: 0
 --- !u!61 &7079982124058997297

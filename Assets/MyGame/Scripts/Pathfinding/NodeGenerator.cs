@@ -20,8 +20,8 @@ public class NodeGenerator : MonoBehaviour
     private void GenerateNode() {
         for (int h = 0; h < height; h++) {
             for (int w = 0; w < width; w++) {
-                Node newNode = Instantiate(nodePrefab, nodeParent);
-                newNode.transform.position = new Vector2(begeinning.x + w, begeinning.y - (h + 1));
+                Vector2 newPos = new Vector2(begeinning.x + w, begeinning.y - (h + 1));
+                Node newNode = Instantiate(nodePrefab, newPos, Quaternion.identity, nodeParent);
             }
         }
     }
