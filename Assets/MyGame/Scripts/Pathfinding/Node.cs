@@ -15,26 +15,24 @@ public class Node : MonoBehaviour
     public float hScore;
 
     private void Awake() {
-        this.GetComponent<BoxCollider2D>().enabled = false;
-
         currentDist = 1;
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, Vector2.one * currentDist, 0);
         //Debug.Log($"{name} a détecté {hits.Length} colliders");
         foreach (Collider2D c in hits) {
             //Debug.Log($"-> {c.gameObject.name} sur layer {LayerMask.LayerToName(c.gameObject.layer)} ({c.gameObject.layer})");
             if (((1 << c.gameObject.layer) & layerProps.value) != 0) {
-                //Debug.Log($"{name} DOIT être détruit (mur/props détecté)");
+                Debug.Log($"{name} DOIT être détruit (mur/props détecté)");
                 Destroy(gameObject);
                 enabled = false;
                 return;
             }
         }
+
+        currentDist = connectionNodeDist;
     }
 
     private void Start() {
         this.GetComponent<BoxCollider2D>().enabled = true;
-
-        currentDist = connectionNodeDist;
         connections = new List<Node>();
 
         int count = 0;
@@ -51,8 +49,10 @@ public class Node : MonoBehaviour
                 Debug.Log("Node Component DETECTED, see if its me");
                 if (nextNod == this) continue;
 
-                Debug.Log($"This {nextNod.name} in the collider  of {this.name}! On /  {count + 1}");
+                Debug.Log($"Its not me, is : {nextNod.name}");
+                //Debug.Log($"This {nextNod.name} in the collider  of {this.name}! On /  {count + 1}");
 
+                Debug.Log("Its not me, add to connections !");
                 connections.Add(nextNod);
                 Debug.Log("Connection Add ");
                 count++;
