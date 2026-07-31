@@ -19,11 +19,11 @@ public class Node : MonoBehaviour
 
         currentDist = 1;
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, Vector2.one * currentDist, 0);
-        Debug.Log($"{name} a détecté {hits.Length} colliders");
+        //Debug.Log($"{name} a détecté {hits.Length} colliders");
         foreach (Collider2D c in hits) {
-            Debug.Log($"-> {c.gameObject.name} sur layer {LayerMask.LayerToName(c.gameObject.layer)} ({c.gameObject.layer})");
+            //Debug.Log($"-> {c.gameObject.name} sur layer {LayerMask.LayerToName(c.gameObject.layer)} ({c.gameObject.layer})");
             if (((1 << c.gameObject.layer) & layerProps.value) != 0) {
-                Debug.Log($"{name} DOIT être détruit (mur/props détecté)");
+                //Debug.Log($"{name} DOIT être détruit (mur/props détecté)");
                 Destroy(gameObject);
                 enabled = false;
                 return;
@@ -34,28 +34,32 @@ public class Node : MonoBehaviour
     private void Start() {
         this.GetComponent<BoxCollider2D>().enabled = true;
 
-        currentDist = 2.5f;
+        currentDist = connectionNodeDist;
         connections = new List<Node>();
 
         int count = 0;
+        Debug.Log("Beggining Connection");
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, Vector2.one * currentDist, 0);
+        Debug.Log($"{this.name}: The lenght of the hit list is {hits.Length}");
 
-        foreach(Collider2D c in hits) {
+        foreach (Collider2D c in hits) {
+            Debug.Log("Beggining ForEach collider in Hits");
             Node nextNod = null;
 
-            if(c.transform.TryGetComponent<Node>(out nextNod) && nextNod == null) {
-
+            Debug.Log("Beggining detection of Node Component");
+            if (c.transform.TryGetComponent<Node>(out nextNod)) {
+                Debug.Log("Node Component DETECTED, see if its me");
                 if (nextNod == this) continue;
 
-                //Debug.Log($"This {nextNod.name} in the collider  of {this.name}! On /  {count + 1}");
+                Debug.Log($"This {nextNod.name} in the collider  of {this.name}! On /  {count + 1}");
 
                 connections.Add(nextNod);
+                Debug.Log("Connection Add ");
                 count++;
             } 
-
-                this.GetComponent<BoxCollider2D>().enabled = false;
         }
- 
+
+        this.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public float FScore() {
