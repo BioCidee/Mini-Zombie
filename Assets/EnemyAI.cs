@@ -32,6 +32,9 @@ public class EnemyAI : MonoBehaviour
     // Méthode appelée au début de l'exécution
     void Start()
     {
+        // Obtient l'information du joueur 
+        target = GameManager.Instance.ReturnPlayerTranform();
+
         // Met à jour le chemin toutes les 0,5 secondes pour suivre la position du joueur
         InvokeRepeating("UpdatePath", 0, 0.5f);
     }
