@@ -34,11 +34,7 @@ public class Player_Movement : MonoBehaviour
         PlayerRotation();
     }
 
-    private void PlayerRotation() {
-        /*Vector2 lookDir = mousePosition - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;*/
-
+    private void PlayerRotation() { // Le joueur regarde dans la direction de la souris
         Vector2 lookDir;
         lookDir.x = transform.position.x - mousePosition.x;
         lookDir.y = transform.position.y - mousePosition.y;
@@ -48,7 +44,7 @@ public class Player_Movement : MonoBehaviour
     }
 
     private void PlayerMovement() {
-      rb.linearVelocity = new Vector2(movementDirection.x * movementSpeed, movementDirection.y * movementSpeed);  
+      rb.linearVelocity = movementDirection * movementSpeed * Time.deltaTime;  
     }
 
 

@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     [Header("---- Point System ----")]
     [SerializeField] private PointManager pointManager;
+
+    [Header("---- AStars ----")]
+    [SerializeField] private AstarsManager aStarsManager;
  
     #region SINGLETON
     private static GameManager instance;

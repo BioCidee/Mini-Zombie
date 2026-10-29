@@ -347,6 +347,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &790427595
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2503637772065776294, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.3682356
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503637772065776294, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.8990877
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503637772065776294, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503637772065776294, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503637772065776294, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503637772065776294, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503637772065776294, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503637772065776294, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503637772065776294, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503637772065776294, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966949556300173680, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: m_Name
+      value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966949556300173680, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234131948974693783, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234131948974693783, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
+      propertyPath: nodeDetection
+      value: 0.9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 41458f904d12198468b7fe5a8caf08e6, type: 3}
 --- !u!1 &885659960
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,8 +494,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   player_Weapons: {fileID: 2026392261}
-  zero: 0
+  zero: 5
   pointManager: {fileID: 912261188}
+  aStarsManager: {fileID: 1093196656}
 --- !u!114 &912261188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5698,7 +5768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23678999d3ce99a449a78f623731d363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Movement
-  movementSpeed: 2
+  movementSpeed: 120
   rb: {fileID: 0}
   cam: {fileID: 1206076065}
 --- !u!50 &2026392258
@@ -5862,6 +5932,7 @@ SceneRoots:
   - {fileID: 217647489}
   - {fileID: 913512386}
   - {fileID: 59004113}
+  - {fileID: 790427595}
   - {fileID: 2050032329}
   - {fileID: 1093196657}
   - {fileID: 710134257}
