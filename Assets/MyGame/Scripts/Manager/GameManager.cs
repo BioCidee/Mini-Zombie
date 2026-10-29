@@ -1,10 +1,12 @@
+using NUnit.Framework.Interfaces;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private PlayerInput playerInput;
 
-    [Header("---- Player Script ----")]
+    [Header("---- Player ----")]
+    [SerializeField] private GameObject Player;
     [SerializeField] private Player_Weapons player_Weapons;
 
     [Header("---- Zombie Spawn ----")]
@@ -13,9 +15,6 @@ public class GameManager : MonoBehaviour
     [Header("---- Point System ----")]
     [SerializeField] private PointManager pointManager;
 
-    [Header("---- AStars ----")]
-    [SerializeField] private AstarsManager aStarsManager;
- 
     #region SINGLETON
     private static GameManager instance;
     public static GameManager Instance {
@@ -48,5 +47,10 @@ public class GameManager : MonoBehaviour
 
     public void PlayerGetWeapons(SO_Weapons _newWeapons) {
         player_Weapons.PlayerGetWeapons(_newWeapons);
+    }
+
+    public Transform ReturnPlayerTranform()
+    {
+        return Player.transform;
     }
 }

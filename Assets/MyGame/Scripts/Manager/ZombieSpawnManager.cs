@@ -13,7 +13,6 @@ public class ZombieSpawnManager : MonoBehaviour
 
     [Header("---- SpawnPoint")]
     [SerializeField] private List<Transform> spawnList = new List<Transform>(); 
-    [SerializeField] private Dictionary<Transform, Node> nodes = new Dictionary<Transform, Node>();
 
     public void SetSpawnZombieOn() {
 
