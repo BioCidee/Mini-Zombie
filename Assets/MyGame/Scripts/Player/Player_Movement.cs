@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -34,9 +35,16 @@ public class Player_Movement : MonoBehaviour
     }
 
     private void PlayerRotation() {
-        Vector2 lookDir = mousePosition - rb.position;
+        /*Vector2 lookDir = mousePosition - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+        rb.rotation = angle;*/
+
+        Vector2 lookDir;
+        lookDir.x = transform.position.x - mousePosition.x;
+        lookDir.y = transform.position.y - mousePosition.y;
+
+        float newRotation = math.atan2(lookDir.y, lookDir.x);
+        rb.rotation = (newRotation * Mathf.Rad2Deg) + 180;
     }
 
     private void PlayerMovement() {
