@@ -95,5 +95,9 @@ public class EnemyAI : MonoBehaviour
                 currWp++;
             }
         }
+        else
+        {
+            Debug.Log("Zombie in range");
+        }
     }
 }

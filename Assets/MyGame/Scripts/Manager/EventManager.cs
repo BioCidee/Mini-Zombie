@@ -26,6 +26,8 @@ public class EventManager : MonoBehaviour {
     #endregion
 
     private void Awake() {
+        ClearAllEvent();
+
         InitializeSingleton();
     }
 
